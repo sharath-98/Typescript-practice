@@ -1,10 +1,12 @@
+import {Login, User} from './interfaces';
+
 interface Address{
     street: string;
     city: string;
     zipcode: string;
 }
 
-class Employee{
+class Employee implements Login{
     #id : number;
     protected name: string;
     protected address: Address;
@@ -17,14 +19,19 @@ class Employee{
         this.name = name;
         this.address = address;
     }
+    
+    login(): User {
+        throw new Error('Method not implemented.');
+    }
 
     
-    public get empId() : number {
+    
+    get empId() : number {
         return this.#id;
     }
 
     
-    public set empId(v : number) {
+    set empId(v : number) {
         this.#id = v;
     }
     
@@ -60,12 +67,14 @@ class Manager extends Employee{
  */
 
 let john = new Employee(1, "John", {street: "Oakland" ,city: "Milwaukee", zipcode:"53211"});
-console.log(john);
+// console.log(john);
 console.log("getNameWithAddr(): " + john.getNameWithAddr());
 console.log("GETTER ID: "+ john.empId);
 john.empId = 10001;
 console.log("GETTER ID: "+ john.empId);
 console.log("getString(): " + Employee.getString() + "\n");
+console.log("Interface value Login: \n");
+
 
 
 let mike = new Manager(2, "mike", {street: "Water st" ,city: "Madison", zipcode:"50211"});
