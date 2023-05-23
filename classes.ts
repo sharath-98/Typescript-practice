@@ -21,7 +21,12 @@ class Employee implements Login{
     }
     
     login(): User {
-        throw new Error('Method not implemented.');
+        let soundarya : User = {
+            name: "Soundarya",
+            age: 23,
+            id: 1
+        } 
+        return soundarya;
     }
 
     
@@ -67,7 +72,7 @@ class Manager extends Employee{
  */
 
 let john = new Employee(1, "John", {street: "Oakland" ,city: "Milwaukee", zipcode:"53211"});
-// console.log(john);
+console.log(john.login());
 console.log("getNameWithAddr(): " + john.getNameWithAddr());
 console.log("GETTER ID: "+ john.empId);
 john.empId = 10001;

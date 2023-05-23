@@ -1,6 +1,6 @@
 // ----------- Named Functions, optional and default param -----------
 
-function add(a: number, b: number = 2, k? : number) : number {
+function add1(a: number, b: number = 2, k? : number) : number {
     let c:number;
     k? c = a + b + k: c = a + b;
     console.log("Add: ", c);
