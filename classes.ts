@@ -1,12 +1,18 @@
+interface Address{
+    street: string;
+    city: string;
+    zipcode: string;
+}
+
 class Employee{
     #id : number;
     protected name: string;
-    protected address: string;
+    protected address: Address;
 
     /**
         Employee(){}
      */
-    constructor(id:number, name:string, address:string){
+    constructor(id:number, name:string, address:Address){
         this.#id = id;
         this.name = name;
         this.address = address;
@@ -34,11 +40,11 @@ class Employee{
 }
 
 class Manager extends Employee{
-    constructor(id:number, name:string, address:string){
+    constructor(id:number, name:string, address:Address){
         super(id, name, address);
     }
 
-    changeAddress(newAddr:string){
+    changeAddress(newAddr:Address){
         this.address = newAddr;
     }
 
@@ -53,7 +59,7 @@ class Manager extends Employee{
     john.address = "Milwaukee";
  */
 
-let john = new Employee(1, "John", "Milwaukee");
+let john = new Employee(1, "John", {street: "Oakland" ,city: "Milwaukee", zipcode:"53211"});
 console.log(john);
 console.log("getNameWithAddr(): " + john.getNameWithAddr());
 console.log("GETTER ID: "+ john.empId);
@@ -62,6 +68,6 @@ console.log("GETTER ID: "+ john.empId);
 console.log("getString(): " + Employee.getString() + "\n");
 
 
-let mike = new Manager(2, "mike", "Milwaukee");
+let mike = new Manager(2, "mike", {street: "Water st" ,city: "Madison", zipcode:"50211"});
 console.log(mike);
 console.log("getNameWithAddr(): " + mike.getNameWithAddr());
